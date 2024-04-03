@@ -31,74 +31,85 @@ export default function SearchForm({
 	);
 
 	return (
-		<form onSubmit={onSubmit}>
-			<div>
-				<label htmlFor="numberOfProducts">Number of products</label>
-				<input
-					value={n}
-					onChange={e => setN(parseInt(e.currentTarget.value))}
-					id="numberOfProducts"
-					type="number"
-					placeholder="Enter number of products"
-				/>
+		<form onSubmit={onSubmit} className="flex justify-between">
+			<div className="flex gap-1">
+				<div>
+					<label htmlFor="numberOfProducts">Number of products</label>
+					<input
+						value={n}
+						onChange={e => setN(parseInt(e.currentTarget.value))}
+						id="numberOfProducts"
+						type="number"
+						placeholder="Enter number of products"
+						className="border-2"
+					/>
+				</div>
+				<div>
+					<label htmlFor="minPrice">Minimum Price</label>
+					<input
+						value={minPrice}
+						onChange={e => setMinPrice(parseInt(e.currentTarget.value))}
+						id="minPrice"
+						type="number"
+						placeholder="Enter minimum price"
+						className="border-2"
+					/>
+				</div>
+				<div>
+					<label htmlFor="maxPrice">Maximum Price</label>
+					<input
+						value={maxPrice}
+						onChange={e => setMaxPrice(parseInt(e.currentTarget.value))}
+						id="maxPrice"
+						type="number"
+						placeholder="Enter maximum price"
+						className="border-2"
+					/>
+				</div>
+				<div>
+					<label htmlFor="company">Select Company</label>
+					<select
+						value={companyname}
+						onChange={e => setCompanyname(e.currentTarget.value)}
+						id="company"
+						className="border-2"
+					>
+						<option value="AMZ">Amazon</option>
+						<option value="FLP">Flipkart</option>
+						<option value="SNP">Snapdeal</option>
+						<option value="MYN">Myntra</option>
+						<option value="AZO">AZO</option>
+					</select>
+				</div>
+				<div>
+					<label htmlFor="category">Select Category</label>
+					<select
+						value={category}
+						onChange={e => setCategory(e.currentTarget.value)}
+						id="category"
+						className="border-2"
+					>
+						<option value="Phone">Phone</option>
+						<option value="Phone">Computer</option>
+						<option value="TV">TV</option>
+						<option value="Charger">Charger</option>
+						<option value="Mouse">Mouse</option>
+						<option value="Keypad">Keypad</option>
+						<option value="Bluetooth">Bluetooth</option>
+						<option value="Pendrive">Pendrive</option>
+						<option value="Remote">Remote</option>
+						<option value="Speaker">Speaker</option>
+						<option value="Headset">Headset</option>
+						<option value="Laptop">Laptop</option>
+						<option value="PC">PC</option>
+					</select>
+				</div>
 			</div>
-			<div>
-				<label htmlFor="minPrice">Minimum Price</label>
-				<input
-					value={minPrice}
-					onChange={e => setMinPrice(parseInt(e.currentTarget.value))}
-					id="minPrice"
-					type="number"
-					placeholder="Enter minimum price"
-				/>
-			</div>
-			<div>
-				<label htmlFor="maxPrice">Maximum Price</label>
-				<input
-					value={maxPrice}
-					onChange={e => setMaxPrice(parseInt(e.currentTarget.value))}
-					id="maxPrice"
-					type="number"
-					placeholder="Enter maximum price"
-				/>
-			</div>
-			<div>
-				<label htmlFor="company">Select Company</label>
-				<select
-					value={companyname}
-					onChange={e => setCompanyname(e.currentTarget.value)}
-					id="company"
-				>
-					<option value="AMZ">Amazon</option>
-					<option value="FLP">Flipkart</option>
-					<option value="SNP">Snapdeal</option>
-					<option value="MYN">Myntra</option>
-					<option value="AZO">AZO</option>
-				</select>
-			</div>
-			<div>
-				<label htmlFor="category">Select Category</label>
-				<select
-					value={category}
-					onChange={e => setCategory(e.currentTarget.value)}
-					id="category"
-				>
-					<option value="Phone">Phone</option>
-					<option value="Phone">Computer</option>
-					<option value="TV">TV</option>
-					<option value="Charger">Charger</option>
-					<option value="Mouse">Mouse</option>
-					<option value="Keypad">Keypad</option>
-					<option value="Bluetooth">Bluetooth</option>
-					<option value="Pendrive">Pendrive</option>
-					<option value="Remote">Remote</option>
-					<option value="Speaker">Speaker</option>
-					<option value="Headset">Headset</option>
-					<option value="Laptop">Laptop</option>
-					<option value="PC">PC</option>
-				</select>
-			</div>
-			<input type="submit" value="Search" />
+			<input
+				type="submit"
+				value="Search"
+				className="border-2 py-2 px-6 rounded-lg bg-blue-50 hover:bg-blue-200 hover:cursor-pointer"
+			/>
 		</form>
 	);
 }

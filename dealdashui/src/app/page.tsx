@@ -8,7 +8,7 @@ export default function Home() {
 	const [products, setProducts] = useState([]);
 
 	return (
-		<main>
+		<main className="p-4">
 			<SearchForm setProducts={setProducts} />
 			<DisplayProducts products={products} />
 		</main>

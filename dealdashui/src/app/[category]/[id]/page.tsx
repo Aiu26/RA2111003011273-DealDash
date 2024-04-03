@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default async function page({
 	params: { category, id },
 }: {
@@ -13,15 +15,21 @@ export default async function page({
 	const product = await productResponse.json();
 
 	return (
-		<div>
-			<h1>{product.productName}</h1>
-			<p>
-				Rs. {product.price} (Discount: {product.discount})
+		<main className="p-4 flex flex-col gap-1">
+			<Image
+				src={`https://source.unsplash.com/random/500x250?random=${product.id}`}
+				width={500}
+				height={250}
+				alt={product.productName}
+			/>
+			<h1 className="text-xl font-bold">{product.productName}</h1>
+			<p className="font-medium">
+				Rs. {product.price} ({product.discount}% Off)
 			</p>
-			<p>Availability: {product.availability}</p>
+			<p className="font-medium">Availability: {product.availability}</p>
 			<p>
 				{product.categories} | {product.company}
 			</p>
-		</div>
+		</main>
 	);
 }
